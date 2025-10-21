@@ -2,6 +2,7 @@
   "version": "5",
   "specifiers": {
     "jsr:@db/sqlite@*": "0.12.0",
+    "jsr:@db/sqlite@0.12": "0.12.0",
     "jsr:@denosaurs/plug@1": "1.1.0",
     "jsr:@oak/commons@1": "1.0.1",
     "jsr:@oak/oak@*": "17.1.6",
@@ -368,6 +369,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@db/sqlite@0.12",
       "jsr:@oak/oak@^17.1.6"
     ]
   }

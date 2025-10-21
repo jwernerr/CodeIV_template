@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@db/sqlite": "jsr:@db/sqlite@^0.12.0",
     "@oak/oak": "jsr:@oak/oak@^17.1.6"
   }
 }

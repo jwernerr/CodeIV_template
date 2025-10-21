@@ -8,6 +8,12 @@
     <script type="module" src="script.js" defer></script>
 </head>
 <body>
+    <div id="header">
+        <h1>
+            Cool game with customization (but it's only the customization)
+        </h1>
+    </div>
+
     <div id="loginForm">
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
@@ -18,6 +24,34 @@
     <div id="welcome" style="display:none;">
         <p id="greeting"></p>
         <button id="logoutBtn">Logout</button>
+        <button id="showCurrentAvatarBtn">Show your avatar</button>
+
+        
+        <div>
+            <p>Customize your avatar</p>
+
+            <label for="hat">Hat</label>
+            <input type="range" min="1" max="7" value="1" class="slider" id="hat" oninput="console.log(this.value)">
+            
+            <label for="eyes">Eyes</label>
+            <input type="range" min="1" max="7" value="1" class="slider" id="eyes">
+            
+            <label for="nose">Nose</label>
+            <input type="range" min="1" max="7" value="1" class="slider" id="nose">
+            
+            <label for="mouth">Mouth</label>
+            <input type="range" min="1" max="7" value="1" class="slider" id="mouth">
+            
+            <button id="saveAvatarBtn">Save avatar</button>
+        </div>
+        
+        
+    </div>
+
+    <div id="activeSession" style="display:none;">
+        <h2>Time to focus!</h2>
+        <p id="collecting"></p>
+        <button id="stopSessionBtn">Stop Session</button>
     </div>
 </body>
 </html>

@@ -114,10 +114,40 @@ function logout() {
     if (welcomeElem)
         welcomeElem.style.display = "none";
 }
+function saveAvatar() {
+    return __awaiter(this, void 0, void 0, function () {
+        var hatS, eyesS, noseS, mouthS, hat, eyes, nose, mouth, res;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    hatS = document.getElementById("hat");
+                    eyesS = document.getElementById("eyes");
+                    noseS = document.getElementById("nose");
+                    mouthS = document.getElementById("mouth");
+                    hat = Number(hatS.value);
+                    eyes = Number(eyesS.value);
+                    nose = Number(noseS.value);
+                    mouth = Number(mouthS.value);
+                    return [4 /*yield*/, fetch("/save", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ hat: hat, eyes: eyes, nose: nose, mouth: mouth })
+                        })];
+                case 1:
+                    res = _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function showCurrentAvatar() {
+}
 // Event Listener erst setzen, wenn DOM geladen ist
 document.addEventListener("DOMContentLoaded", function () {
-    var _a, _b, _c;
+    var _a, _b, _c, _d, _e;
     (_a = document.getElementById("loginBtn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", login);
     (_b = document.getElementById("registerBtn")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", register);
     (_c = document.getElementById("logoutBtn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", logout);
+    (_d = document.getElementById("showCurrentAvatarBtn")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", showCurrentAvatar);
+    (_e = document.getElementById("saveAvatarBtn")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", saveAvatar);
 });

@@ -31,6 +31,7 @@ async function login() {
     }
 
     const data = await res.json();
+    
     if (data.success) {
         currentUser = username;
 
@@ -57,9 +58,33 @@ function logout() {
     if (welcomeElem) welcomeElem.style.display = "none";
 }
 
+async function saveAvatar(){
+    let hatS: HTMLInputElement = <HTMLInputElement>document.getElementById("hat");
+    const eyesS: HTMLInputElement = <HTMLInputElement>document.getElementById("eyes");
+    const noseS: HTMLInputElement = <HTMLInputElement>document.getElementById("nose");
+    const mouthS: HTMLInputElement = <HTMLInputElement>document.getElementById("mouth");
+
+    let hat:number=Number(hatS.value);
+    let eyes: number = Number(eyesS.value);
+    let nose:number=Number(noseS.value);
+    let mouth:number=Number(mouthS.value);
+
+    const res = await fetch("/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ hat,eyes,nose,mouth})
+    });
+}
+
+function showCurrentAvatar(){
+    
+}
+
 // Event Listener erst setzen, wenn DOM geladen ist
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("loginBtn")?.addEventListener("click", login);
     document.getElementById("registerBtn")?.addEventListener("click", register);
     document.getElementById("logoutBtn")?.addEventListener("click", logout);
+    document.getElementById("showCurrentAvatarBtn")?.addEventListener("click", showCurrentAvatar);
+    document.getElementById("saveAvatarBtn")?.addEventListener("click", saveAvatar);
 });
